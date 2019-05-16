@@ -1,0 +1,46 @@
+﻿
+@{
+    DateTime data = ViewBag.DataAtual;
+    List<EcommerceA.Models.Produto> produtos = ViewBag.Produtos;
+}
+<h1>Gerenciamento de Produtos</h1>
+
+@Html.ActionLink("Cadastrar produto", "Cadastrar", "Produto")
+<br />
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
+        <th>Imagem</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (EcommerceA.Models.Produto produto in produtos)
+            {
+        <tr>
+            <td>@produto.Nome</td>
+            <td>@produto.Descricao</td>
+            <td>@produto.Valor.ToString("C2")</td>
+            <td>@produto.Quantidade</td>
+            <td>
+                <img src="~/Images/@produto.Imagem" alt="@produto.Descricao"
+                     style="width: 150px" />
+            </td>
+            <td>
+                @Html.ActionLink("Remover Produto", "Remover", "Produto", 
+                    new { id = produto.ProdutoId},
+                    new { @class="btn btn-danger"})
+            </td>
+            <td>
+                @Html.ActionLink("Aterar Produto", "Alterar", "Produto",
+                    new { id = produto.ProdutoId },
+                    new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+    }
+</table>
+
+<b>Dados atualizados em: </b>@data

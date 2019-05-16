@@ -1,0 +1,59 @@
+﻿
+@using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Cadastrar Produto</legend>
+        <div id="Nome" class="form-group">
+            @Html.Label("Nome", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtNome", "", new { @class = "form-control", @placeholder = "Digite o nome do produto" })
+            </div>
+        </div>
+
+        <div id="Descricao" class="form-group">
+            @Html.Label("Descrição", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtDescricao", "", new { @class = "form-control", @placeholder = "Digite a descrição do produto" })
+            </div>
+        </div>
+
+        <div id="Valor" class="form-group">
+            @Html.Label("Valor", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtValor", "", new { @class = "form-control", @placeholder = "Digite o valor do produto" })
+            </div>
+        </div>
+
+        <div id="Quantidade" class="form-group">
+            @Html.Label("Quantidade", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtQuantidade", "", new { @class = "form-control", @placeholder = "Digite a quantidade do produto" })
+            </div>
+        </div>
+
+        <div id="Categoria" class="form-group">
+            @Html.Label("Categoria", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.DropDownList("Categorias", null, 
+                    " -- SELECIONE -- ", 
+                    new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div id="Imagem" class="form-group">
+            @Html.Label("Imagem", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                <input type="file" id="fupImagem" name="fupImagem" 
+                       class="form-control-file" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit"
+                       value="Cadastrar" />
+            </div>
+        </div>
+    </fieldset>
+}

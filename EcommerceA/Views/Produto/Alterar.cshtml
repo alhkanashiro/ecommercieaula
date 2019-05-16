@@ -1,0 +1,56 @@
+﻿@using EcommerceA.Models;
+@{ 
+    Produto p = ViewBag.Produto;
+}
+
+@using (Html.BeginForm("Alterar", "Produto", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.Hidden("hdnId", p.ProdutoId)
+    <fieldset>
+        <legend>Alterar Produto</legend>
+        <div id="Nome" class="form-group">
+            @Html.Label("Id", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtId", p.ProdutoId,
+                    new { @class = "form-control",
+                           @placeholder = "Digite o nome do produto",
+                           @readonly ="" })
+            </div>
+        </div>
+
+        <div id="Nome" class="form-group">
+            @Html.Label("Nome", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtNome", p.Nome, new { @class = "form-control", @placeholder = "Digite o nome do produto" })
+            </div>
+        </div>
+
+        <div id="Descricao" class="form-group">
+            @Html.Label("Descrição", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtDescricao", p.Descricao, new { @class = "form-control", @placeholder = "Digite a descrição do produto" })
+            </div>
+        </div>
+
+        <div id="Valor" class="form-group">
+            @Html.Label("Valor", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtValor", p.Valor, new { @class = "form-control", @placeholder = "Digite o valor do produto" })
+            </div>
+        </div>
+
+        <div id="Quantidade" class="form-group">
+            @Html.Label("Quantidade", new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBox("txtQuantidade", p.Quantidade, new { @class = "form-control", @placeholder = "Digite a quantidade do produto" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit"
+                       value="Salvar" />
+            </div>
+        </div>
+    </fieldset>
+}
